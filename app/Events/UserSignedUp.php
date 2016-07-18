@@ -2,26 +2,26 @@
 
 namespace App\Events;
 
-use App\Message;
 use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class UserSignedIn extends Event implements ShouldBroadcast
+class UserSignedUp extends Event implements ShouldBroadcast
 {
     use SerializesModels;
 
-     public $message;
+    public $username;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Message $message)
+    public function __construct($username)
     {
-        // Get message
-        $this->message = $message;
+        $this->username = $username;
     }
+
     /**
      * Get the channels the event should be broadcast on.
      *
@@ -29,6 +29,7 @@ class UserSignedIn extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['message: '.$this->message];
+        return ['super-channel'];
     }
+
 }

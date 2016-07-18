@@ -13,7 +13,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\UserSignedIn' => [
+        'App\Events\UserSignedUp' => [
             'App\Listeners\SignOutExistingUserSessions',
         ],
     ];

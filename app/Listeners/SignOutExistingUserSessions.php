@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Events\UserSignedIn;
+use App\Events\UserSignedUp;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -21,11 +21,11 @@ class SignOutExistingUserSessions
     /**
      * Handle the event.
      *
-     * @param  UserSignedIn  $event
+     * @param  UserSignedUp  $event
      * @return void
      */
-    public function handle(UserSignedIn $event)
+    public function handle(UserSignedUp $event)
     {
-        //
+        return $event;
     }
 }
